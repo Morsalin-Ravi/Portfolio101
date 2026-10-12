@@ -1,0 +1,25 @@
+{
+  "name": "Morsalin Ravi",
+  "title": "Video Editor & Motion Designer",
+  "tagline": "Making every frame count.",
+  "email": "hello@morsalinravi.com",
+  "location": "Bangladesh",
+  "social": {
+    "instagram": "https://instagram.com/morsalinravi",
+    "facebook": "https://facebook.com/morsalinravi",
+    "linkedin": "https://linkedin.com/in/morsalinravi",
+    "youtube": "https://youtube.com/@morsalinravi",
+    "behance": "https://behance.net/morsalinravi"
+  },
+  "navigation": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Work", "href": "#work" },
+    { "label": "Reviews", "href": "#reviews" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "seo": {
+    "description": "Morsalin Ravi — Video Editor & Motion Designer. I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing and cinematic storytelling.",
+    "keywords": "video editor, motion designer, video editing, content creator, Bangladesh, freelance editor"
+  }
+}

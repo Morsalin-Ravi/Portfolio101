@@ -1,0 +1,101 @@
+[
+  {
+    "id": "project-001",
+    "title": "Cinematic Brand Reel",
+    "category": "Short-Form Reels",
+    "description": "A visually engaging short-form video edit crafted to capture attention within the first 3 seconds. Designed for maximum engagement on Instagram and TikTok.",
+    "thumbnail": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "Luxe Studio",
+    "tools": ["Premiere Pro", "After Effects"],
+    "featured": true
+  },
+  {
+    "id": "project-002",
+    "title": "Product Launch Campaign",
+    "category": "Video Ads",
+    "description": "A high-impact product launch video combining motion graphics, dynamic transitions, and brand storytelling to drive conversions.",
+    "thumbnail": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "TechFlow",
+    "tools": ["After Effects", "Premiere Pro"],
+    "featured": true
+  },
+  {
+    "id": "project-003",
+    "title": "Creator Interview Series",
+    "category": "YouTube Videos",
+    "description": "A multi-episode YouTube series featuring in-depth creator interviews with cinematic B-roll, dynamic lower thirds, and engaging pacing.",
+    "thumbnail": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "CreatorHub",
+    "tools": ["Premiere Pro", "DaVinci Resolve"],
+    "featured": false
+  },
+  {
+    "id": "project-004",
+    "title": "Talking Head Masterclass",
+    "category": "Talking-Head Videos",
+    "description": "Clean, professional talking-head edit with dynamic zoom cuts, caption overlays, and subtle background music to maintain viewer engagement.",
+    "thumbnail": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "EduLearn",
+    "tools": ["CapCut", "Premiere Pro"],
+    "featured": false
+  },
+  {
+    "id": "project-005",
+    "title": "AI-Generated Visual Story",
+    "category": "AI Videos",
+    "description": "An experimental short film combining AI-generated visuals with traditional editing techniques to create a unique narrative experience.",
+    "thumbnail": "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "",
+    "tools": ["Runway ML", "Premiere Pro", "After Effects"],
+    "featured": true
+  },
+  {
+    "id": "project-006",
+    "title": "Animated Logo Reveal",
+    "category": "Motion Graphics",
+    "description": "A sleek animated logo reveal with particle effects, smooth typography animation, and brand-aligned color grading.",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "NovaBrand",
+    "tools": ["After Effects"],
+    "featured": false
+  },
+  {
+    "id": "project-007",
+    "title": "Fashion Week Recap",
+    "category": "Short-Form Reels",
+    "description": "A fast-paced fashion week recap reel with beat-synced cuts, cinematic color grading, and trending audio integration.",
+    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "StyleHouse",
+    "tools": ["Premiere Pro", "CapCut"],
+    "featured": false
+  },
+  {
+    "id": "project-008",
+    "title": "SaaS Explainer Video",
+    "category": "Video Ads",
+    "description": "A clear and compelling SaaS explainer video combining screen recordings, motion graphics, and voiceover to communicate product value.",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "CloudSync",
+    "tools": ["After Effects", "Premiere Pro"],
+    "featured": false
+  },
+  {
+    "id": "project-009",
+    "title": "Documentary Chapter Edit",
+    "category": "YouTube Videos",
+    "description": "A long-form documentary chapter edit with archival footage integration, interview segments, and atmospheric sound design.",
+    "thumbnail": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=450&fit=crop",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "client": "DocuFilms",
+    "tools": ["DaVinci Resolve", "Premiere Pro"],
+    "featured": false
+  }
+]
