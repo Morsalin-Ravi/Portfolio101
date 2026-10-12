@@ -1,84 +1,48 @@
+import { Quote, Check } from 'lucide-react';
 import testimonials from '../data/testimonials.json';
 
 export default function Reviews() {
   return (
-    <section id="reviews" style={{ padding: '5rem 1.5rem' }}>
-      <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <span style={{
-            fontSize: '0.75rem',
-            fontWeight: '500',
-            letterSpacing: '0.2em',
-            color: '#635BFF',
-            textTransform: 'uppercase',
-          }}>
+    <section id="reviews" className="py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-xs font-semibold tracking-widest text-[#635BFF] uppercase">
             Testimonials
           </span>
-          <h2 style={{
-            fontSize: 'clamp(1.875rem, 4vw, 2.25rem)',
-            fontWeight: 'bold',
-            color: '#111111',
-            marginTop: '0.75rem',
-            lineHeight: '1.2',
-          }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#111111] mt-3 leading-tight">
             Good work. Better collaborations.
           </h2>
         </div>
 
         {testimonials.length > 0 ? (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem',
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((review) => (
               <div
                 key={review.id}
-                style={{
-                  padding: '1.5rem',
-                  borderRadius: '1rem',
-                  backgroundColor: 'white',
-                  border: '1px solid #E8E8E8',
-                }}
+                className="p-6 rounded-2xl bg-white border border-[#E8E8E8] shadow-sm hover:shadow-md transition-shadow"
               >
-                <div style={{ fontSize: '1.5rem', color: '#E8E8E8', marginBottom: '1rem' }}>"</div>
-                <p style={{ color: '#111111', lineHeight: '1.625', marginBottom: '1.5rem', fontSize: '0.875rem' }}>
+                <Quote className="w-8 h-8 text-[#E8E8E8] mb-4" />
+                <p className="text-[#111111] leading-relaxed mb-6 text-sm">
                   {review.content}
                 </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{
-                    width: '2.5rem',
-                    height: '2.5rem',
-                    borderRadius: '50%',
-                    backgroundColor: '#F7F7F5',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.875rem',
-                    fontWeight: '500',
-                    color: '#6B6B6B',
-                  }}>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#F7F7F5] flex items-center justify-center text-sm font-semibold text-[#6B6B6B]">
                     {review.name.charAt(0)}
                   </div>
                   <div>
-                    <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#111111' }}>{review.name}</p>
-                    <p style={{ fontSize: '0.75rem', color: '#6B6B6B' }}>{review.role}</p>
+                    <p className="text-sm font-semibold text-[#111111]">{review.name}</p>
+                    <p className="text-xs text-[#6B6B6B]">{review.role}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div style={{ maxWidth: '42rem', margin: '0 auto', textAlign: 'center' }}>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#111111', marginBottom: '1rem' }}>
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl font-bold text-[#111111] mb-6">
               What You Can Expect
             </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '1rem',
-              textAlign: 'left',
-            }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
               {[
                 'Clear communication throughout the project',
                 'Timely delivery with attention to detail',
@@ -87,18 +51,10 @@ export default function Reviews() {
               ].map((item) => (
                 <div
                   key={item}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '0.75rem',
-                    padding: '1rem',
-                    borderRadius: '0.75rem',
-                    backgroundColor: 'white',
-                    border: '1px solid #E8E8E8',
-                  }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-[#E8E8E8]"
                 >
-                  <span style={{ color: '#635BFF', marginTop: '0.125rem' }}>✓</span>
-                  <span style={{ fontSize: '0.875rem', color: '#6B6B6B' }}>{item}</span>
+                  <Check className="w-5 h-5 text-[#635BFF] shrink-0 mt-0.5" />
+                  <span className="text-sm text-[#6B6B6B]">{item}</span>
                 </div>
               ))}
             </div>

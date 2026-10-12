@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { Play, X, Filter } from 'lucide-react';
 import projects from '../data/projects.json';
 
 interface Project {
@@ -13,6 +14,11 @@ interface Project {
   featured: boolean;
 }
 
+interface PortfolioProps {
+  selectedProject?: Project | null;
+  onSelectProject?: (project: Project | null) => void;
+}
+
 function getEmbedUrl(url: string): string | null {
   const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0`;
@@ -21,9 +27,19 @@ function getEmbedUrl(url: string): string | null {
   return null;
 }
 
-export default function Portfolio() {
+export default function Portfolio({ selectedProject: externalSelectedProject, onSelectProject: externalOnSelectProject }: PortfolioProps) {
   const [activeFilter, setActiveFilter] = useState('All Projects');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [internalSelectedProject, setInternalSelectedProject] = useState<Project | null>(null);
+
+  const selectedProject = externalSelectedProject !== undefined ? externalSelectedProject : internalSelectedProject;
+
+  const setSelectedProject = (proj: Project | null) => {
+    if (externalOnSelectProject) {
+      externalOnSelectProject(proj);
+    } else {
+      setInternalSelectedProject(proj);
+    }
+  };
 
   const categories = useMemo(() => {
     const cats = new Set(projects.map((p) => p.category));
@@ -35,117 +51,80 @@ export default function Portfolio() {
     return projects.filter((p) => p.category === activeFilter);
   }, [activeFilter]);
 
+  // Lock body scroll and handle Escape key when modal is active
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setSelectedProject(null);
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [selectedProject]);
+
   return (
-    <section id="work" style={{ padding: '5rem 1.5rem' }}>
-      <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 style={{
-            fontSize: 'clamp(1.875rem, 4vw, 3rem)',
-            fontWeight: 'bold',
-            color: '#111111',
-            lineHeight: '1.2',
-          }}>
+    <section id="work" className="py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-5xl font-bold text-[#111111] leading-tight">
             A selection of work built to make an impact.
           </h2>
         </div>
 
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '0.5rem',
-          marginBottom: '3rem',
-        }}>
+        <div className="flex flex-wrap justify-center items-center gap-2 mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              style={{
-                padding: '0.5rem 1rem',
-                borderRadius: '9999px',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                border: activeFilter === cat ? 'none' : '1px solid #E8E8E8',
-                backgroundColor: activeFilter === cat ? '#111111' : 'white',
-                color: activeFilter === cat ? 'white' : '#6B6B6B',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                activeFilter === cat
+                  ? 'bg-[#111111] text-white shadow-sm'
+                  : 'bg-white text-[#6B6B6B] border border-[#E8E8E8] hover:border-[#111111] hover:text-[#111111]'
+              }`}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '1.5rem',
-        }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <article
               key={project.id}
               onClick={() => setSelectedProject(project as Project)}
-              style={{ cursor: 'pointer' }}
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-[#E8E8E8] p-3 hover:border-[#111111]/20 hover:shadow-xl transition-all duration-300"
             >
-              <div className="thumbnail-wrapper" style={{
-                position: 'relative',
-                borderRadius: '1rem',
-                overflow: 'hidden',
-                backgroundColor: '#E8E8E8',
-                aspectRatio: '16 / 9',
-                marginBottom: '1rem',
-              }}>
+              <div className="relative rounded-xl overflow-hidden bg-[#E8E8E8] aspect-video mb-3">
                 <img
                   src={project.thumbnail}
                   alt={project.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'rgba(0, 0, 0, 0)',
-                  transition: 'background-color 0.3s',
-                }}>
-                  <div style={{
-                    width: '3rem',
-                    height: '3rem',
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.5rem',
-                  }}>
-                    ▶
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-white/90 text-[#111111] flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform group-hover:scale-100 scale-90 transition-all duration-300">
+                    <Play className="w-5 h-5 fill-current translate-x-0.5" />
                   </div>
                 </div>
               </div>
 
-              <div>
-                <span style={{
-                  fontSize: '0.75rem',
-                  color: '#635BFF',
-                  fontWeight: '500',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                }}>
+              <div className="px-1 pb-1">
+                <span className="text-xs font-semibold text-[#635BFF] uppercase tracking-wider">
                   {project.category}
                 </span>
-                <h3 style={{
-                  fontSize: '1.125rem',
-                  fontWeight: '600',
-                  color: '#111111',
-                  marginTop: '0.25rem',
-                }}>
+                <h3 className="text-base font-semibold text-[#111111] mt-1 group-hover:text-[#635BFF] transition-colors">
                   {project.title}
                 </h3>
                 {project.client && (
-                  <p style={{ fontSize: '0.875rem', color: '#6B6B6B', marginTop: '0.25rem' }}>
+                  <p className="text-xs text-[#6B6B6B] mt-1">
                     {project.client}
                   </p>
                 )}
@@ -158,73 +137,47 @@ export default function Portfolio() {
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 100,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '1rem',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-          }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedProject.title}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{ width: '100%', maxWidth: '64rem' }}
+            className="w-full max-w-4xl relative"
           >
             <button
               onClick={() => setSelectedProject(null)}
-              style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                background: 'none',
-                border: 'none',
-                color: 'white',
-                fontSize: '1.5rem',
-                cursor: 'pointer',
-              }}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 p-1 cursor-pointer"
+              aria-label="Close modal"
             >
-              ✕
+              <X className="w-6 h-6" />
             </button>
-            <div style={{
-              borderRadius: '1rem',
-              overflow: 'hidden',
-              backgroundColor: 'black',
-              aspectRatio: '16 / 9',
-            }}>
+            <div className="rounded-2xl overflow-hidden bg-black aspect-video shadow-2xl">
               {getEmbedUrl(selectedProject.videoUrl) ? (
                 <iframe
                   src={getEmbedUrl(selectedProject.videoUrl)!}
-                  style={{ width: '100%', height: '100%', border: 'none' }}
+                  className="w-full h-full border-0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   title={selectedProject.title}
                 />
               ) : (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'rgba(255, 255, 255, 0.6)',
-                }}>
+                <div className="w-full h-full flex items-center justify-center text-white/60">
                   <a
                     href={selectedProject.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#635BFF', textDecoration: 'underline' }}
+                    className="text-[#635BFF] underline font-medium"
                   >
                     Watch on original platform →
                   </a>
                 </div>
               )}
             </div>
-            <div style={{ marginTop: '1rem', color: 'white' }}>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600' }}>{selectedProject.title}</h3>
-              <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+            <div className="mt-4 text-white">
+              <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
+              <p className="text-white/70 text-sm mt-1">
                 {selectedProject.description}
               </p>
             </div>

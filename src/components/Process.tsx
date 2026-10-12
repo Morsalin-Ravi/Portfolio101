@@ -1,64 +1,50 @@
+import { Search, PenTool, Sparkles, Rocket } from 'lucide-react';
+
 export default function Process() {
   const steps = [
-    { number: '01', title: 'Understand', description: "Learn the client's goals, audience, and requirements.", icon: '🔍' },
-    { number: '02', title: 'Craft', description: 'Build an engaging story with strong pacing and structure.', icon: '✏️' },
-    { number: '03', title: 'Polish', description: 'Refine sound, captions, color, and motion graphics.', icon: '✨' },
-    { number: '04', title: 'Deliver', description: 'Prepare the final video for the required platform.', icon: '🚀' },
+    { number: '01', title: 'Understand', description: "Learn the client's goals, audience, and requirements.", icon: Search },
+    { number: '02', title: 'Craft', description: 'Build an engaging story with strong pacing and structure.', icon: PenTool },
+    { number: '03', title: 'Polish', description: 'Refine sound, captions, color, and motion graphics.', icon: Sparkles },
+    { number: '04', title: 'Deliver', description: 'Prepare the final video for the required platform.', icon: Rocket },
   ];
 
   return (
-    <section style={{ padding: '5rem 1.5rem', backgroundColor: 'white' }}>
-      <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <span style={{
-            fontSize: '0.75rem',
-            fontWeight: '500',
-            letterSpacing: '0.2em',
-            color: '#635BFF',
-            textTransform: 'uppercase',
-          }}>
+    <section className="py-20 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-xs font-semibold tracking-widest text-[#635BFF] uppercase">
             Process
           </span>
-          <h2 style={{
-            fontSize: 'clamp(1.875rem, 4vw, 2.25rem)',
-            fontWeight: 'bold',
-            color: '#111111',
-            marginTop: '0.75rem',
-          }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#111111] mt-3">
             My Editing Process
           </h2>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '1.5rem',
-        }}>
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              style={{
-                padding: '1.5rem',
-                borderRadius: '1rem',
-                border: '1px solid #E8E8E8',
-                backgroundColor: '#F7F7F5',
-                transition: 'all 0.3s',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#E8E8E8' }}>
-                  {step.number}
-                </span>
-                <span style={{ fontSize: '1.25rem' }}>{step.icon}</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={step.number}
+                className="p-6 rounded-2xl border border-[#E8E8E8] bg-[#F7F7F5] hover:border-[#111111]/20 hover:shadow-md transition-all duration-300"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl font-bold text-[#111111]/20">
+                    {step.number}
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#635BFF] shadow-sm">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-[#111111] mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-[#6B6B6B] leading-relaxed">
+                  {step.description}
+                </p>
               </div>
-              <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#111111', marginBottom: '0.5rem' }}>
-                {step.title}
-              </h3>
-              <p style={{ fontSize: '0.875rem', color: '#6B6B6B', lineHeight: '1.625' }}>
-                {step.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
