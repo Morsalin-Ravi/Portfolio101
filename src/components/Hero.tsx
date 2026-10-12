@@ -6,7 +6,7 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center pt-24 pb-16 px-6">
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Content */}
-        <div className="animate-fade-up">
+        <div>
           <span className="inline-block text-xs font-medium tracking-[0.2em] text-[#6B6B6B] uppercase mb-6">
             Video Editor · Motion Designer
           </span>
@@ -42,16 +42,11 @@ export default function Hero() {
         </div>
 
         {/* Right Content - Portrait */}
-        <div className="relative flex justify-center lg:justify-end animate-fade-in">
+        <div className="relative flex justify-center lg:justify-end">
           <div className="relative">
             {/* Main Portrait */}
-            <div className="w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#E8E8E8] to-[#F7F7F5] shadow-xl">
-              <img
-                src="https://image.qwenlm.ai/generated-images/f73abc33-531e-4275-9fb1-831695a2fe68/_result.png"
-                alt="Morsalin Ravi - Video Editor & Motion Designer"
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
+            <div className="w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#111111] to-[#333333] shadow-xl flex items-center justify-center">
+              <span className="text-6xl font-bold text-white/20">MR</span>
             </div>
 
             {/* Floating Labels */}

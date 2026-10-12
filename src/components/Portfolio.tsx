@@ -145,11 +145,10 @@ export default function Portfolio() {
 
         {/* Project Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className="group cursor-pointer animate-fade-up"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="group cursor-pointer"
               onClick={() => setSelectedProject(project as Project)}
               role="button"
               tabIndex={0}

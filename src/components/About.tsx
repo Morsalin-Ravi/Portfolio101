@@ -12,13 +12,8 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Portrait */}
           <div className="flex justify-center lg:justify-start">
-            <div className="w-72 h-80 sm:w-80 sm:h-96 rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#E8E8E8] to-[#F7F7F5] shadow-lg">
-              <img
-                src="https://image.qwenlm.ai/generated-images/f73abc33-531e-4275-9fb1-831695a2fe68/_result.png"
-                alt="Morsalin Ravi - About"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+            <div className="w-72 h-80 sm:w-80 sm:h-96 rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#111111] to-[#333333] shadow-lg flex items-center justify-center">
+              <span className="text-6xl font-bold text-white/20">MR</span>
             </div>
           </div>
 
