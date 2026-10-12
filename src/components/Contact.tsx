@@ -1,80 +1,42 @@
+import { ArrowUpRight, Mail } from 'lucide-react';
 import siteConfig from '../data/siteConfig.json';
 
 export default function Contact() {
   const projectInquiryLink = `mailto:${siteConfig.email}?subject=Project Inquiry&body=Hi Morsalin,%0A%0AI'd like to discuss a video project with you.%0A%0AProject Type:%0ATimeline:%0ABudget Range:%0ADetails:%0A%0AThank you!`;
 
   return (
-    <section id="contact" style={{ padding: '5rem 1.5rem' }}>
-      <div style={{ maxWidth: '56rem', margin: '0 auto', textAlign: 'center' }}>
-        <span style={{
-          fontSize: '0.75rem',
-          fontWeight: '500',
-          letterSpacing: '0.2em',
-          color: '#635BFF',
-          textTransform: 'uppercase',
-        }}>
+    <section id="contact" className="py-20 px-6">
+      <div className="max-w-4xl mx-auto text-center">
+        <span className="text-xs font-semibold tracking-widest text-[#635BFF] uppercase">
           Get In Touch
         </span>
-        <h2 style={{
-          fontSize: 'clamp(1.875rem, 5vw, 3rem)',
-          fontWeight: 'bold',
-          color: '#111111',
-          marginTop: '0.75rem',
-          marginBottom: '1.5rem',
-          lineHeight: '1.1',
-        }}>
+        <h2 className="text-3xl sm:text-5xl font-bold text-[#111111] mt-3 mb-6 leading-tight">
           Have a video in mind?<br />Let's make it happen.
         </h2>
-        <p style={{
-          fontSize: '1.125rem',
-          color: '#6B6B6B',
-          marginBottom: '2.5rem',
-          maxWidth: '32rem',
-          margin: '0 auto 2.5rem',
-        }}>
+        <p className="text-lg text-[#6B6B6B] mb-10 max-w-xl mx-auto leading-relaxed">
           Tell me about your project, your goals, and the story you want to tell.
         </p>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
+        <div className="flex flex-wrap justify-center items-center gap-4">
           <a
             href={projectInquiryLink}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              backgroundColor: '#111111',
-              color: 'white',
-              padding: '1rem 2rem',
-              borderRadius: '9999px',
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              textDecoration: 'none',
-            }}
+            className="inline-flex items-center gap-2 bg-[#111111] text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-[#333333] transition-colors"
           >
-            Start a Project ↗
+            <span>Start a Project</span>
+            <ArrowUpRight className="w-4 h-4" />
           </a>
           <a
             href={`mailto:${siteConfig.email}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              border: '1px solid #E8E8E8',
-              color: '#111111',
-              padding: '1rem 2rem',
-              borderRadius: '9999px',
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              textDecoration: 'none',
-            }}
+            className="inline-flex items-center gap-2 border border-[#E8E8E8] text-[#111111] bg-white px-8 py-4 rounded-full text-sm font-medium hover:border-[#111111] transition-colors"
           >
-            ✉ Email Me
+            <Mail className="w-4 h-4" />
+            <span>Email Me</span>
           </a>
         </div>
 
-        <p style={{ marginTop: '2rem', fontSize: '0.875rem', color: '#6B6B6B' }}>
+        <p className="mt-8 text-sm text-[#6B6B6B]">
           Or reach out directly at{' '}
-          <a href={`mailto:${siteConfig.email}`} style={{ color: '#635BFF', textDecoration: 'underline' }}>
+          <a href={`mailto:${siteConfig.email}`} className="text-[#635BFF] hover:underline font-medium">
             {siteConfig.email}
           </a>
         </p>

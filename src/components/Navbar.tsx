@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import siteConfig from '../data/siteConfig.json';
 
 export default function Navbar() {
@@ -13,60 +14,23 @@ export default function Navbar() {
   };
 
   return (
-    <nav style={{
-      position: 'fixed',
-      top: '1rem',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      zIndex: 50,
-      width: '100%',
-      maxWidth: '1200px',
-      padding: '0 1rem',
-    }}>
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderRadius: '9999px',
-        padding: '0.75rem 1.5rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-        border: '1px solid rgba(255, 255, 255, 0.5)',
-      }}>
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
+      <div className="glass rounded-full px-6 py-3 flex items-center justify-between shadow-lg border border-white/50">
         <a
           href="#home"
           onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-          style={{
-            fontWeight: 'bold',
-            fontSize: '0.875rem',
-            letterSpacing: '0.1em',
-            color: '#111111',
-            textDecoration: 'none',
-          }}
+          className="font-bold text-sm tracking-wider text-[#111111] hover:opacity-80 transition-opacity"
         >
           MORSALIN RAVI
         </a>
 
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1.5rem',
-        }} className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-6">
           {siteConfig.navigation.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-              style={{
-                fontSize: '0.875rem',
-                color: '#6B6B6B',
-                textDecoration: 'none',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#111111'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#6B6B6B'}
+              className="text-sm text-[#6B6B6B] hover:text-[#111111] transition-colors"
             >
               {item.label}
             </a>
@@ -74,59 +38,31 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-            style={{
-              backgroundColor: '#111111',
-              color: 'white',
-              fontSize: '0.75rem',
-              fontWeight: '500',
-              padding: '0.5rem 1rem',
-              borderRadius: '9999px',
-              textDecoration: 'none',
-              transition: 'background-color 0.2s',
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#333333'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#111111'}
+            className="inline-flex items-center gap-1.5 bg-[#111111] text-white text-xs font-medium px-4 py-2 rounded-full hover:bg-[#333333] transition-colors"
           >
-            Let's Work Together ↗
+            <span>Let's Work Together</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
 
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden"
-          style={{
-            background: 'none',
-            border: 'none',
-            fontSize: '1.5rem',
-            cursor: 'pointer',
-            color: '#111111',
-          }}
+          className="md:hidden p-1 text-[#111111] hover:opacity-75 transition-opacity"
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMobileMenuOpen ? '✕' : '☰'}
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {isMobileMenuOpen && (
-        <div style={{
-          marginTop: '0.5rem',
-          background: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '1rem',
-          padding: '1.5rem',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div className="mt-2 glass rounded-2xl p-6 shadow-xl border border-white/50 md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-3">
             {siteConfig.navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                style={{
-                  fontSize: '1rem',
-                  color: '#111111',
-                  textDecoration: 'none',
-                  padding: '0.5rem 0',
-                }}
+                className="text-base font-medium text-[#111111] py-1 hover:text-[#635BFF] transition-colors"
               >
                 {item.label}
               </a>
@@ -134,19 +70,10 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-              style={{
-                marginTop: '0.5rem',
-                backgroundColor: '#111111',
-                color: 'white',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                padding: '0.75rem 1.25rem',
-                borderRadius: '9999px',
-                textDecoration: 'none',
-                textAlign: 'center',
-              }}
+              className="mt-2 inline-flex items-center justify-center gap-1.5 bg-[#111111] text-white text-sm font-medium py-3 px-5 rounded-full hover:bg-[#333333] transition-colors text-center"
             >
-              Let's Work Together ↗
+              <span>Let's Work Together</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>
