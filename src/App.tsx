@@ -10,9 +10,9 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen bg-[#F7F7F5]">
+    <div style={{ minHeight: '100vh', backgroundColor: '#F7F7F5' }}>
       <Navbar />
       <main>
         <Hero />
@@ -29,3 +29,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;

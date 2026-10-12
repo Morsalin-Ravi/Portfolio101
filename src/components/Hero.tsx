@@ -1,63 +1,166 @@
-import { ArrowDown, Mail } from 'lucide-react';
 import siteConfig from '../data/siteConfig.json';
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-24 pb-16 px-6">
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Left Content */}
+    <section id="home" style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      paddingTop: '6rem',
+      paddingBottom: '4rem',
+      paddingLeft: '1.5rem',
+      paddingRight: '1.5rem',
+    }}>
+      <div style={{
+        maxWidth: '80rem',
+        margin: '0 auto',
+        width: '100%',
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gap: '3rem',
+        alignItems: 'center',
+      }} className="lg:grid-cols-2">
         <div>
-          <span className="inline-block text-xs font-medium tracking-[0.2em] text-[#6B6B6B] uppercase mb-6">
+          <span style={{
+            display: 'inline-block',
+            fontSize: '0.75rem',
+            fontWeight: '500',
+            letterSpacing: '0.2em',
+            color: '#6B6B6B',
+            textTransform: 'uppercase',
+            marginBottom: '1.5rem',
+          }}>
             Video Editor · Motion Designer
           </span>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-[#111111] mb-6">
+          <h1 style={{
+            fontSize: 'clamp(2rem, 5vw, 3.75rem)',
+            fontWeight: 'bold',
+            lineHeight: '1.1',
+            color: '#111111',
+            marginBottom: '1.5rem',
+          }}>
             I turn raw footage into stories people remember.
           </h1>
 
-          <p className="text-lg text-[#6B6B6B] leading-relaxed mb-8 max-w-lg">
+          <p style={{
+            fontSize: '1.125rem',
+            color: '#6B6B6B',
+            lineHeight: '1.625',
+            marginBottom: '2rem',
+            maxWidth: '32rem',
+          }}>
             I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing, cinematic visuals, and purposeful storytelling.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
             <a
               href="#work"
               onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="inline-flex items-center gap-2 bg-[#111111] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#333333] transition-colors duration-200"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                backgroundColor: '#111111',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '9999px',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                textDecoration: 'none',
+              }}
             >
-              Explore My Work <ArrowDown size={16} />
+              Explore My Work ↓
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center gap-2 border border-[#E8E8E8] text-[#111111] px-6 py-3 rounded-full text-sm font-medium hover:border-[#111111] transition-colors duration-200"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                border: '1px solid #E8E8E8',
+                color: '#111111',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '9999px',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                textDecoration: 'none',
+              }}
             >
-              Let's Talk <Mail size={16} />
+              Let's Talk ✉
             </a>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-sm text-[#6B6B6B]">Available for selected projects</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span style={{
+              width: '0.5rem',
+              height: '0.5rem',
+              backgroundColor: '#22c55e',
+              borderRadius: '50%',
+            }}></span>
+            <span style={{ fontSize: '0.875rem', color: '#6B6B6B' }}>
+              Available for selected projects
+            </span>
           </div>
         </div>
 
-        {/* Right Content - Portrait */}
-        <div className="relative flex justify-center lg:justify-end">
-          <div className="relative">
-            {/* Main Portrait */}
-            <div className="w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#111111] to-[#333333] shadow-xl flex items-center justify-center">
-              <span className="text-6xl font-bold text-white/20">MR</span>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          position: 'relative',
+        }} className="lg:justify-end">
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              width: '24rem',
+              height: '28rem',
+              borderRadius: '2rem',
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, #111111, #333333)',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }} className="w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem]">
+              <span style={{ fontSize: '3.75rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.2)' }}>
+                MR
+              </span>
             </div>
 
-            {/* Floating Labels */}
-            <div className="absolute -left-4 top-12 glass-card rounded-xl px-3 py-2 animate-float shadow-sm">
-              <span className="text-xs font-medium text-[#111111]">🎬 Video Editing</span>
+            <div className="glass-card animate-float" style={{
+              position: 'absolute',
+              left: '-1rem',
+              top: '3rem',
+              borderRadius: '0.75rem',
+              padding: '0.5rem 0.75rem',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+            }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: '500', color: '#111111' }}>
+                🎬 Video Editing
+              </span>
             </div>
-            <div className="absolute -right-4 top-1/3 glass-card rounded-xl px-3 py-2 animate-float-delayed shadow-sm">
-              <span className="text-xs font-medium text-[#111111]">✨ Motion Design</span>
+            <div className="glass-card animate-float-delayed" style={{
+              position: 'absolute',
+              right: '-1rem',
+              top: '33%',
+              borderRadius: '0.75rem',
+              padding: '0.5rem 0.75rem',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+            }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: '500', color: '#111111' }}>
+                ✨ Motion Design
+              </span>
             </div>
-            <div className="absolute -left-2 bottom-16 glass-card rounded-xl px-3 py-2 animate-float-slow shadow-sm">
-              <span className="text-xs font-medium text-[#111111]">🤖 AI Video</span>
+            <div className="glass-card animate-float-slow" style={{
+              position: 'absolute',
+              left: '-0.5rem',
+              bottom: '4rem',
+              borderRadius: '0.75rem',
+              padding: '0.5rem 0.75rem',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+            }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: '500', color: '#111111' }}>
+                🤖 AI Video
+              </span>
             </div>
           </div>
         </div>

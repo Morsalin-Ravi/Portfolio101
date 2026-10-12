@@ -1,71 +1,72 @@
-import { Film, Youtube, Megaphone, User, Shapes, Bot } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Short-Form Video Editing',
-    description: 'Scroll-stopping reels and shorts optimized for Instagram, TikTok, and YouTube Shorts.',
-    icon: Film,
-  },
-  {
-    title: 'YouTube Video Editing',
-    description: 'Full-length YouTube edits with engaging pacing, B-roll, captions, and retention-focused structure.',
-    icon: Youtube,
-  },
-  {
-    title: 'Video Ads & Commercials',
-    description: 'High-converting ad videos that communicate your message clearly and drive action.',
-    icon: Megaphone,
-  },
-  {
-    title: 'Talking-Head Videos',
-    description: 'Clean, professional edits for courses, podcasts, and educational content with dynamic cuts.',
-    icon: User,
-  },
-  {
-    title: 'Motion Graphics',
-    description: 'Animated logos, lower thirds, transitions, and visual elements that elevate your content.',
-    icon: Shapes,
-  },
-  {
-    title: 'AI Video Production',
-    description: 'Cutting-edge AI-assisted video creation combining generative tools with professional editing.',
-    icon: Bot,
-  },
-];
-
 export default function Services() {
+  const services = [
+    { title: 'Short-Form Video Editing', description: 'Scroll-stopping reels and shorts optimized for Instagram, TikTok, and YouTube Shorts.', icon: '🎬' },
+    { title: 'YouTube Video Editing', description: 'Full-length YouTube edits with engaging pacing, B-roll, captions, and retention-focused structure.', icon: '▶️' },
+    { title: 'Video Ads & Commercials', description: 'High-converting ad videos that communicate your message clearly and drive action.', icon: '📢' },
+    { title: 'Talking-Head Videos', description: 'Clean, professional edits for courses, podcasts, and educational content with dynamic cuts.', icon: '👤' },
+    { title: 'Motion Graphics', description: 'Animated logos, lower thirds, transitions, and visual elements that elevate your content.', icon: '🎨' },
+    { title: 'AI Video Production', description: 'Cutting-edge AI-assisted video creation combining generative tools with professional editing.', icon: '🤖' },
+  ];
+
   return (
-    <section className="py-20 sm:py-28 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-xs font-medium tracking-[0.2em] text-[#635BFF] uppercase">
+    <section style={{ padding: '5rem 1.5rem', backgroundColor: 'white' }}>
+      <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <span style={{
+            fontSize: '0.75rem',
+            fontWeight: '500',
+            letterSpacing: '0.2em',
+            color: '#635BFF',
+            textTransform: 'uppercase',
+          }}>
             Services
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#111111] mt-3">
+          <h2 style={{
+            fontSize: 'clamp(1.875rem, 4vw, 2.25rem)',
+            fontWeight: 'bold',
+            color: '#111111',
+            marginTop: '0.75rem',
+          }}>
             What I Can Do For You
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={service.title}
-                className="group p-6 rounded-2xl border border-[#E8E8E8] hover:border-[#635BFF]/20 hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#F7F7F5] group-hover:bg-[#635BFF]/10 flex items-center justify-center mb-4 transition-colors duration-300">
-                  <Icon size={20} className="text-[#6B6B6B] group-hover:text-[#635BFF] transition-colors duration-300" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#111111] mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-[#6B6B6B] leading-relaxed">
-                  {service.description}
-                </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '1.5rem',
+        }}>
+          {services.map((service) => (
+            <div
+              key={service.title}
+              style={{
+                padding: '1.5rem',
+                borderRadius: '1rem',
+                border: '1px solid #E8E8E8',
+                transition: 'all 0.3s',
+              }}
+            >
+              <div style={{
+                width: '2.5rem',
+                height: '2.5rem',
+                borderRadius: '0.75rem',
+                backgroundColor: '#F7F7F5',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: '1rem',
+                fontSize: '1.25rem',
+              }}>
+                {service.icon}
               </div>
-            );
-          })}
+              <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#111111', marginBottom: '0.5rem' }}>
+                {service.title}
+              </h3>
+              <p style={{ fontSize: '0.875rem', color: '#6B6B6B', lineHeight: '1.625' }}>
+                {service.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,50 +1,49 @@
-import { Instagram, Facebook, Linkedin, Youtube, ArrowUp } from 'lucide-react';
 import siteConfig from '../data/siteConfig.json';
-
-function BehanceIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M1 12.5h7c1.5 0 3-1 3-2.5s-1.5-2.5-3-2.5H1v5z" />
-      <path d="M1 17.5h7c1.5 0 3-1 3-2.5s-1.5-2.5-3-2.5H1v5z" />
-      <path d="M15 8.5h6c1.5 0 3 1 3 2.5s-1.5 2.5-3 2.5h-6v-5z" />
-      <path d="M15 17.5h6c1.5 0 3-1 3-2.5" />
-      <path d="M15 6v12" />
-    </svg>
-  );
-}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: 'Instagram', url: siteConfig.social.instagram, icon: Instagram },
-    { name: 'Facebook', url: siteConfig.social.facebook, icon: Facebook },
-    { name: 'LinkedIn', url: siteConfig.social.linkedin, icon: Linkedin },
-    { name: 'YouTube', url: siteConfig.social.youtube, icon: Youtube },
-    { name: 'Behance', url: siteConfig.social.behance, icon: BehanceIcon },
+    { name: 'Instagram', url: siteConfig.social.instagram, icon: '📷' },
+    { name: 'Facebook', url: siteConfig.social.facebook, icon: '👤' },
+    { name: 'LinkedIn', url: siteConfig.social.linkedin, icon: '💼' },
+    { name: 'YouTube', url: siteConfig.social.youtube, icon: '▶️' },
+    { name: 'Behance', url: siteConfig.social.behance, icon: '🎨' },
   ];
 
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="bg-[#111111] text-white py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-10 mb-12">
-          {/* Brand */}
+    <footer style={{ backgroundColor: '#111111', color: 'white', padding: '4rem 1.5rem' }}>
+      <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '2.5rem',
+          marginBottom: '3rem',
+        }}>
           <div>
-            <h3 className="text-xl font-bold mb-2">{siteConfig.name}</h3>
-            <p className="text-white/60 text-sm mb-4">{siteConfig.title}</p>
-            <p className="text-white/40 text-sm italic">"{siteConfig.tagline}"</p>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+              {siteConfig.name}
+            </h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.875rem', marginBottom: '1rem' }}>
+              {siteConfig.title}
+            </p>
+            <p style={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '0.875rem', fontStyle: 'italic' }}>
+              "{siteConfig.tagline}"
+            </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/60 mb-4">
+            <h4 style={{
+              fontSize: '0.875rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              color: 'rgba(255, 255, 255, 0.6)',
+              marginBottom: '1rem',
+            }}>
               Quick Links
             </h4>
-            <nav className="flex flex-col gap-2">
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {siteConfig.navigation.map((item) => (
                 <a
                   key={item.href}
@@ -53,7 +52,11 @@ export default function Footer() {
                     e.preventDefault();
                     document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="text-sm text-white/60 hover:text-white transition-colors"
+                  style={{
+                    fontSize: '0.875rem',
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    textDecoration: 'none',
+                  }}
                 >
                   {item.label}
                 </a>
@@ -61,48 +64,82 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact & Social */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/60 mb-4">
+            <h4 style={{
+              fontSize: '0.875rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              color: 'rgba(255, 255, 255, 0.6)',
+              marginBottom: '1rem',
+            }}>
               Connect
             </h4>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="text-sm text-white/60 hover:text-white transition-colors block mb-4"
+              style={{
+                fontSize: '0.875rem',
+                color: 'rgba(255, 255, 255, 0.6)',
+                textDecoration: 'none',
+                display: 'block',
+                marginBottom: '1rem',
+              }}
             >
               {siteConfig.email}
             </a>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/60 transition-all duration-200"
-                    aria-label={social.name}
-                  >
-                    <Icon size={16} />
-                  </a>
-                );
-              })}
+            <div style={{ display: 'flex', gap: '0.75rem' }}>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  style={{
+                    width: '2.25rem',
+                    height: '2.25rem',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textDecoration: 'none',
+                    fontSize: '1rem',
+                  }}
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/40">
+        <div style={{
+          paddingTop: '2rem',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1rem',
+        }}>
+          <p style={{ fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.4)' }}>
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <button
-            onClick={handleScrollToTop}
-            className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors"
-            aria-label="Back to top"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '0.875rem',
+              color: 'rgba(255, 255, 255, 0.4)',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
           >
-            Back to Top <ArrowUp size={14} />
+            Back to Top ↑
           </button>
         </div>
       </div>

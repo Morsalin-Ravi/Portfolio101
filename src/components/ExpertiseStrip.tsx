@@ -9,13 +9,33 @@ export default function ExpertiseStrip() {
   ];
 
   return (
-    <section className="py-12 border-y border-[#E8E8E8]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
+    <section style={{
+      paddingTop: '3rem',
+      paddingBottom: '3rem',
+      borderTop: '1px solid #E8E8E8',
+      borderBottom: '1px solid #E8E8E8',
+    }}>
+      <div style={{
+        maxWidth: '80rem',
+        margin: '0 auto',
+        paddingLeft: '1.5rem',
+        paddingRight: '1.5rem',
+      }}>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: '2rem',
+        }}>
           {services.map((service) => (
             <span
               key={service}
-              className="text-sm sm:text-base text-[#6B6B6B] font-medium whitespace-nowrap"
+              style={{
+                fontSize: '1rem',
+                color: '#6B6B6B',
+                fontWeight: '500',
+                whiteSpace: 'nowrap',
+              }}
             >
               {service}
             </span>
