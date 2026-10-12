@@ -1,39 +1,1227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Morsalin Ravi | Video Editor & Motion Designer</title>
-    <meta name="description" content="Morsalin Ravi — Video Editor & Motion Designer. I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing and cinematic storytelling." />
-    <meta name="keywords" content="video editor, motion designer, video editing, content creator, Bangladesh, freelance editor" />
-    <meta name="author" content="Morsalin Ravi" />
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Morsalin Ravi | Video Editor & Motion Designer" />
-    <meta property="og:description" content="I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing and cinematic storytelling." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.jpg" />
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Morsalin Ravi | Video Editor & Motion Designer" />
-    <meta name="twitter:description" content="I help creators, brands, and businesses transform ideas into engaging videos." />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='48' font-weight='bold' fill='white' text-anchor='middle'%3EMR%3C/text%3E%3C/svg%3E" />
-    
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    
-    <style>
-      html { scroll-behavior: smooth; }
-      body { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morsalin Ravi | Video Editor & Motion Designer</title>
+  <meta name="description" content="Morsalin Ravi — Video Editor & Motion Designer. I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing and cinematic storytelling.">
+  <meta property="og:title" content="Morsalin Ravi | Video Editor & Motion Designer">
+  <meta property="og:description" content="I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing and cinematic storytelling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #F7F7F5;
+      color: #111111;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 1rem;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-logo {
+      font-weight: bold;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      color: #111111;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: #6B6B6B;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #111111;
+    }
+
+    .nav-cta {
+      background-color: #111111;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .nav-cta:hover {
+      background-color: #333333;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #111111;
+    }
+
+    .mobile-menu {
+      display: none;
+      margin-top: 0.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.5rem 0;
+      color: #111111;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: #6B6B6B;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: bold;
+      line-height: 1.1;
+      color: #111111;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: #6B6B6B;
+      line-height: 1.625;
+      margin-bottom: 2rem;
+      max-width: 32rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #111111;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #E8E8E8;
+      color: #111111;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .availability-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: #22c55e;
+      border-radius: 50%;
+    }
+
+    .availability-text {
+      font-size: 0.875rem;
+      color: #6B6B6B;
+    }
+
+    .hero-portrait {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .portrait-box {
+      width: 24rem;
+      height: 28rem;
+      border-radius: 2rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, #111111, #333333);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .portrait-text {
+      font-size: 3.75rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .floating-label {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #111111;
+    }
+
+    .floating-label-1 {
+      left: -1rem;
+      top: 3rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-label-2 {
+      right: -1rem;
+      top: 33%;
+      animation: float 4s ease-in-out infinite 1s;
+    }
+
+    .floating-label-3 {
+      left: -0.5rem;
+      bottom: 4rem;
+      animation: float 5s ease-in-out infinite 2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: #635BFF;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.875rem, 4vw, 3rem);
+      font-weight: bold;
+      color: #111111;
+      line-height: 1.2;
+    }
+
+    /* Expertise Strip */
+    .expertise-strip {
+      padding: 3rem 1.5rem;
+      border-top: 1px solid #E8E8E8;
+      border-bottom: 1px solid #E8E8E8;
+    }
+
+    .expertise-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .expertise-item {
+      font-size: 1rem;
+      color: #6B6B6B;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .portfolio-thumbnail {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: #E8E8E8;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .portfolio-card:hover .portfolio-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-category {
+      font-size: 0.75rem;
+      color: #635BFF;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .portfolio-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111111;
+      margin-top: 0.25rem;
+    }
+
+    .portfolio-client {
+      font-size: 0.875rem;
+      color: #6B6B6B;
+      margin-top: 0.25rem;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: 1px solid #E8E8E8;
+      background-color: white;
+      color: #6B6B6B;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: #111111;
+      color: #111111;
+    }
+
+    .filter-btn.active {
+      background-color: #111111;
+      color: white;
+      border-color: #111111;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tool-tag {
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background-color: white;
+      color: #111111;
+      border: 1px solid #E8E8E8;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Process */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .process-card {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #E8E8E8;
+      background-color: #F7F7F5;
+    }
+
+    .process-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #E8E8E8;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111111;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-description {
+      font-size: 0.875rem;
+      color: #6B6B6B;
+      line-height: 1.625;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #E8E8E8;
+      transition: all 0.3s;
+    }
+
+    .service-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      background-color: #F7F7F5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .service-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111111;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-description {
+      font-size: 0.875rem;
+      color: #6B6B6B;
+      line-height: 1.625;
+    }
+
+    /* Reviews */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background-color: white;
+      border: 1px solid #E8E8E8;
+    }
+
+    .review-quote {
+      font-size: 1.5rem;
+      color: #E8E8E8;
+      margin-bottom: 1rem;
+    }
+
+    .review-content {
+      color: #111111;
+      line-height: 1.625;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .review-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: #F7F7F5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #6B6B6B;
+    }
+
+    .review-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #111111;
+    }
+
+    .review-role {
+      font-size: 0.75rem;
+      color: #6B6B6B;
+    }
+
+    /* Contact */
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111111;
+      color: white;
+      padding: 4rem 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer-social a {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-top-btn {
+      background: none;
+      border: none;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 64rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .modal-video {
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: black;
+      aspect-ratio: 16 / 9;
+    }
+
+    .modal-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .modal-info {
+      margin-top: 1rem;
+      color: white;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .modal-description {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">MORSALIN RAVI</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Let's Work Together ↗</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="toggleMobileMenu()">Home</a>
+      <a href="#about" onclick="toggleMobileMenu()">About</a>
+      <a href="#work" onclick="toggleMobileMenu()">Work</a>
+      <a href="#reviews" onclick="toggleMobileMenu()">Reviews</a>
+      <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+      <a href="#contact" class="btn-primary" style="margin-top: 1rem; display: inline-block;" onclick="toggleMobileMenu()">Let's Work Together ↗</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-label">Video Editor · Motion Designer</span>
+          <h1>I turn raw footage into stories people remember.</h1>
+          <p>I help creators, brands, and businesses transform ideas into engaging videos through thoughtful editing, cinematic visuals, and purposeful storytelling.</p>
+          <div class="hero-buttons">
+            <a href="#work" class="btn-primary">Explore My Work ↓</a>
+            <a href="mailto:hello@morsalinravi.com" class="btn-secondary">Let's Talk ✉</a>
+          </div>
+          <div class="availability">
+            <span class="availability-dot"></span>
+            <span class="availability-text">Available for selected projects</span>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <div class="portrait-box">
+            <span class="portrait-text">MR</span>
+            <div class="floating-label floating-label-1">🎬 Video Editing</div>
+            <div class="floating-label floating-label-2">✨ Motion Design</div>
+            <div class="floating-label floating-label-3">🤖 AI Video</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Strip -->
+  <section class="expertise-strip">
+    <div class="container">
+      <div class="expertise-items">
+        <span class="expertise-item">Short-Form Content</span>
+        <span class="expertise-item">YouTube Editing</span>
+        <span class="expertise-item">Video Ads</span>
+        <span class="expertise-item">Talking-Head Videos</span>
+        <span class="expertise-item">Motion Graphics</span>
+        <span class="expertise-item">AI Video</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">A selection of work built to make an impact.</h2>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div style="display: flex; justify-content: center;">
+          <div class="portrait-box" style="width: 20rem; height: 24rem;">
+            <span class="portrait-text">MR</span>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">About Me</div>
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">More than editing. It's about how the story feels.</h2>
+          <p style="color: #6B6B6B; line-height: 1.625; margin-bottom: 2rem;">
+            I'm Morsalin Ravi, a video editor and motion designer passionate about turning ideas into compelling visual stories. From engaging short-form content to polished brand videos, I focus on pacing, sound, visual clarity, and storytelling that keeps audiences watching.
+          </p>
+          <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Tools I Work With</h3>
+          <div class="tools-list">
+            <span class="tool-tag">Adobe Premiere Pro</span>
+            <span class="tool-tag">Adobe After Effects</span>
+            <span class="tool-tag">CapCut</span>
+            <span class="tool-tag">AI Video Tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section style="background-color: white;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">My Editing Process</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-number">01</div>
+          <div class="process-title">Understand</div>
+          <div class="process-description">Learn the client's goals, audience, and requirements.</div>
+        </div>
+        <div class="process-card">
+          <div class="process-number">02</div>
+          <div class="process-title">Craft</div>
+          <div class="process-description">Build an engaging story with strong pacing and structure.</div>
+        </div>
+        <div class="process-card">
+          <div class="process-number">03</div>
+          <div class="process-title">Polish</div>
+          <div class="process-description">Refine sound, captions, color, and motion graphics.</div>
+        </div>
+        <div class="process-card">
+          <div class="process-number">04</div>
+          <div class="process-title">Deliver</div>
+          <div class="process-description">Prepare the final video for the required platform.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section style="background-color: white;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">What I Can Do For You</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🎬</div>
+          <div class="service-title">Short-Form Video Editing</div>
+          <div class="service-description">Scroll-stopping reels and shorts optimized for Instagram, TikTok, and YouTube Shorts.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">▶️</div>
+          <div class="service-title">YouTube Video Editing</div>
+          <div class="service-description">Full-length YouTube edits with engaging pacing, B-roll, captions, and retention-focused structure.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📢</div>
+          <div class="service-title">Video Ads & Commercials</div>
+          <div class="service-description">High-converting ad videos that communicate your message clearly and drive action.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👤</div>
+          <div class="service-title">Talking-Head Videos</div>
+          <div class="service-description">Clean, professional edits for courses, podcasts, and educational content with dynamic cuts.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <div class="service-title">Motion Graphics</div>
+          <div class="service-description">Animated logos, lower thirds, transitions, and visual elements that elevate your content.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <div class="service-title">AI Video Production</div>
+          <div class="service-description">Cutting-edge AI-assisted video creation combining generative tools with professional editing.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">Good work. Better collaborations.</h2>
+      </div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container" style="max-width: 56rem; text-align: center;">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">Have a video in mind?<br>Let's make it happen.</h2>
+      <p style="font-size: 1.125rem; color: #6B6B6B; margin-bottom: 2.5rem;">
+        Tell me about your project, your goals, and the story you want to tell.
+      </p>
+      <div class="contact-buttons">
+        <a href="mailto:hello@morsalinravi.com?subject=Project Inquiry" class="btn-primary">Start a Project ↗</a>
+        <a href="mailto:hello@morsalinravi.com" class="btn-secondary">✉ Email Me</a>
+      </div>
+      <p style="margin-top: 2rem; font-size: 0.875rem; color: #6B6B6B;">
+        Or reach out directly at <a href="mailto:hello@morsalinravi.com" style="color: #635BFF; text-decoration: underline;">hello@morsalinravi.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Morsalin Ravi</div>
+          <div class="footer-subtitle">Video Editor & Motion Designer</div>
+          <div class="footer-tagline">"Making every frame count."</div>
+        </div>
+        <div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">Connect</h4>
+          <a href="mailto:hello@morsalinravi.com" style="display: block; font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); text-decoration: none; margin-bottom: 1rem;">hello@morsalinravi.com</a>
+          <div class="footer-social">
+            <a href="https://instagram.com/morsalinravi" target="_blank" aria-label="Instagram">📷</a>
+            <a href="https://facebook.com/morsalinravi" target="_blank" aria-label="Facebook">👤</a>
+            <a href="https://linkedin.com/in/morsalinravi" target="_blank" aria-label="LinkedIn">💼</a>
+            <a href="https://youtube.com/@morsalinravi" target="_blank" aria-label="YouTube">▶️</a>
+            <a href="https://behance.net/morsalinravi" target="_blank" aria-label="Behance">🎨</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2024 Morsalin Ravi. All rights reserved.</div>
+        <button class="footer-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-video" id="modalVideo"></div>
+      <div class="modal-info">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-description" id="modalDescription"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Portfolio Data
+    const projects = [
+      {
+        id: "project-001",
+        title: "Cinematic Brand Reel",
+        category: "Short-Form Reels",
+        description: "A visually engaging short-form video edit crafted to capture attention within the first 3 seconds.",
+        thumbnail: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop",
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        client: "Luxe Studio",
+        tools: ["Premiere Pro", "After Effects"],
+        featured: true
+      },
+      {
+        id: "project-002",
+        title: "Product Launch Campaign",
+        category: "Video Ads",
+        description: "A high-impact product launch video combining motion graphics, dynamic transitions, and brand storytelling.",
+        thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=450&fit=crop",
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        client: "TechFlow",
+        tools: ["After Effects", "Premiere Pro"],
+        featured: true
+      },
+      {
+        id: "project-003",
+        title: "Creator Interview Series",
+        category: "YouTube Videos",
+        description: "A multi-episode YouTube series featuring in-depth creator interviews with cinematic B-roll.",
+        thumbnail: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop",
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        client: "CreatorHub",
+        tools: ["Premiere Pro", "DaVinci Resolve"],
+        featured: false
+      },
+      {
+        id: "project-004",
+        title: "Talking Head Masterclass",
+        category: "Talking-Head Videos",
+        description: "Clean, professional talking-head edit with dynamic zoom cuts and caption overlays.",
+        thumbnail: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&h=450&fit=crop",
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        client: "EduLearn",
+        tools: ["CapCut", "Premiere Pro"],
+        featured: false
+      },
+      {
+        id: "project-005",
+        title: "AI-Generated Visual Story",
+        category: "AI Videos",
+        description: "An experimental short film combining AI-generated visuals with traditional editing techniques.",
+        thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=450&fit=crop",
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        client: "",
+        tools: ["Runway ML", "Premiere Pro", "After Effects"],
+        featured: true
+      },
+      {
+        id: "project-006",
+        title: "Animated Logo Reveal",
+        category: "Motion Graphics",
+        description: "A sleek animated logo reveal with particle effects and smooth typography animation.",
+        thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=450&fit=crop",
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        client: "NovaBrand",
+        tools: ["After Effects"],
+        featured: false
+      }
+    ];
+
+    const testimonials = [
+      {
+        id: "testimonial-001",
+        name: "Alex Chen",
+        role: "Creative Director, Luxe Studio",
+        content: "Morsalin delivered beyond expectations. The pacing, the transitions, the storytelling — everything was on point."
+      },
+      {
+        id: "testimonial-002",
+        name: "Sarah Mitchell",
+        role: "Marketing Lead, TechFlow",
+        content: "Working with Morsalin was seamless. He understood our vision from the first call and turned raw footage into a polished campaign video."
+      },
+      {
+        id: "testimonial-003",
+        name: "James Park",
+        role: "YouTube Creator",
+        content: "My channel's watch time increased significantly after Morsalin started editing my videos. He knows how to keep audiences engaged."
+      }
+    ];
+
+    let currentFilter = 'All Projects';
+
+    // Initialize
+    function init() {
+      renderFilters();
+      renderPortfolio();
+      renderReviews();
+    }
+
+    // Render Filters
+    function renderFilters() {
+      const categories = ['All Projects', ...new Set(projects.map(p => p.category))];
+      const filtersEl = document.getElementById('filters');
+      filtersEl.innerHTML = categories.map(cat => 
+        `<button class="filter-btn ${cat === currentFilter ? 'active' : ''}" onclick="setFilter('${cat}')">${cat}</button>`
+      ).join('');
+    }
+
+    // Set Filter
+    function setFilter(category) {
+      currentFilter = category;
+      renderFilters();
+      renderPortfolio();
+    }
+
+    // Render Portfolio
+    function renderPortfolio() {
+      const filtered = currentFilter === 'All Projects' ? projects : projects.filter(p => p.category === currentFilter);
+      const gridEl = document.getElementById('portfolioGrid');
+      gridEl.innerHTML = filtered.map(project => `
+        <div class="portfolio-card" onclick="openModal('${project.id}')">
+          <div class="portfolio-thumbnail">
+            <img src="${project.thumbnail}" alt="${project.title}" loading="lazy">
+          </div>
+          <div class="portfolio-category">${project.category}</div>
+          <div class="portfolio-title">${project.title}</div>
+          ${project.client ? `<div class="portfolio-client">${project.client}</div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    // Render Reviews
+    function renderReviews() {
+      const gridEl = document.getElementById('reviewsGrid');
+      gridEl.innerHTML = testimonials.map(review => `
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-content">${review.content}</div>
+          <div class="review-author">
+            <div class="review-avatar">${review.name.charAt(0)}</div>
+            <div>
+              <div class="review-name">${review.name}</div>
+              <div class="review-role">${review.role}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Open Modal
+    function openModal(projectId) {
+      const project = projects.find(p => p.id === projectId);
+      if (!project) return;
+
+      const modal = document.getElementById('videoModal');
+      const videoEl = document.getElementById('modalVideo');
+      const titleEl = document.getElementById('modalTitle');
+      const descEl = document.getElementById('modalDescription');
+
+      const embedUrl = getEmbedUrl(project.videoUrl);
+      if (embedUrl) {
+        videoEl.innerHTML = `<iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else {
+        videoEl.innerHTML = `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.6);"><a href="${project.videoUrl}" target="_blank" style="color: #635BFF; text-decoration: underline;">Watch on original platform →</a></div>`;
+      }
+
+      titleEl.textContent = project.title;
+      descEl.textContent = project.description;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close Modal
+    function closeModal() {
+      const modal = document.getElementById('videoModal');
+      const videoEl = document.getElementById('modalVideo');
+      modal.classList.remove('active');
+      videoEl.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    // Get Embed URL
+    function getEmbedUrl(url) {
+      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0`;
+      
+      const vimeoMatch = url.match(/(?:vimeo\.com\/)(\d+)/);
+      if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`;
+      
+      return null;
+    }
+
+    // Toggle Mobile Menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Close modal on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Close modal on backdrop click
+    document.getElementById('videoModal').addEventListener('click', (e) => {
+      if (e.target.id === 'videoModal') closeModal();
+    });
+
+    // Initialize on load
+    init();
+  </script>
+</body>
 </html>
