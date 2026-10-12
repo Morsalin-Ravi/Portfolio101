@@ -1,0 +1,23 @@
+[
+  {
+    "id": "testimonial-001",
+    "name": "Alex Chen",
+    "role": "Creative Director, Luxe Studio",
+    "content": "Morsalin delivered beyond expectations. The pacing, the transitions, the storytelling — everything was on point. Our brand reel performed 3x better than previous content.",
+    "photo": ""
+  },
+  {
+    "id": "testimonial-002",
+    "name": "Sarah Mitchell",
+    "role": "Marketing Lead, TechFlow",
+    "content": "Working with Morsalin was seamless. He understood our vision from the first call and turned raw footage into a polished campaign video that drove real results.",
+    "photo": ""
+  },
+  {
+    "id": "testimonial-003",
+    "name": "James Park",
+    "role": "YouTube Creator",
+    "content": "My channel's watch time increased significantly after Morsalin started editing my videos. He knows how to keep audiences engaged from start to finish.",
+    "photo": ""
+  }
+]
